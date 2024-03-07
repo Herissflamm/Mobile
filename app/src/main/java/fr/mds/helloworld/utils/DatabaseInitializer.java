@@ -21,21 +21,9 @@ public class DatabaseInitializer {
     }
 
     public static void populateDatabaseAsync(@NonNull AppDatabase database) {
-        PopulateDatabaseAsyncTask task = new PopulateDatabaseAsyncTask(database);
-        task.execute();
-    }
-
-    private static class PopulateDatabaseAsyncTask extends AsyncTask<Void, Void, Void> {
-        private AppDatabase mDatabase;
-
-        public PopulateDatabaseAsyncTask(AppDatabase database) {
-            mDatabase = database;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            populateDatabaseSync(mDatabase);
-            return null;
-        }
+        AsyncRunner runner = new AsyncRunner();
+        runner.runTask(() -> {
+            populateDatabaseSync(database);
+        });
     }
 }

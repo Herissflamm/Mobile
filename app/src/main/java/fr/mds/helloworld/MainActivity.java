@@ -36,13 +36,9 @@ public class MainActivity extends AppCompatActivity {
     public void listStudents() {
         LiveData<List<Student>> students = mViewModel.getAllStudents();
 
-        MainActivity mThis = this;
-        students.observe(this, new Observer<List<Student>>() {
-            @Override
-            public void onChanged(List<Student> students) {
-                for (Student student : students) {
-                    Toast.makeText(mThis, student.getFirstName(), Toast.LENGTH_SHORT);
-                }
+        students.observe(this, students1 -> {
+            for (Student student : students1) {
+                ((TextView)findViewById(R.id.tv)).setText(student.getFirstName());
             }
         });
     }
