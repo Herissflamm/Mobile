@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- Title of the item -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/champion_item_height"
+        android:layout_weight="2"
+        android:textSize="@dimen/champion_item_textSize"
+        android:paddingStart="5dp"
+        android:gravity="center_vertical"
+        android:id="@+id/champion_name"></TextView>
+
+    <!-- Is the item done -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/champion_item_height"
+        android:layout_weight="4"
+        android:textSize="@dimen/champion_item_textSize"
+        android:paddingStart="5dp"
+        android:gravity="center_vertical"
+        android:id="@+id/champion_role"></TextView>
+
+    <ImageButton
+        android:id="@+id/champion_update"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/champion_item_height"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        android:contentDescription="Edit button" />
+
+    <ImageButton
+        android:id="@+id/champion_delete"
+        android:layout_width="150dp"
+        android:layout_height="@dimen/champion_item_height"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:contentDescription="Delete button" />
+</LinearLayout>
