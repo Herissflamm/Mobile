@@ -69,7 +69,6 @@ public class UpdateChampionDialogFragment extends DialogFragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                System.out.println("Modify text " + s.toString());
                 mIsTitleValid = isTitleValid(s.toString());
                 dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(mIsDoneValid && mIsTitleValid);
             }
@@ -101,7 +100,6 @@ public class UpdateChampionDialogFragment extends DialogFragment {
 
     private void updateChampion(String name, String lane) {
         mViewModel.getById(mChampionId).observe(this, (champion) -> {
-            System.out.println(champion.getName());
             champion.setName(name);
             champion.setLane(lane);
             mViewModel.updateChampionTask(champion);
